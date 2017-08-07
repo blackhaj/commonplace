@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require normalize
+ *= require skeleton
+ */
+ 
+                          /* MAIN APPLICATION CONTAINER */
+
+/* Background Image  */
+.bg-image {
+   background-image: url('/assets/paper.jpg'); 
+  /* background-color: rgb(249,241,228); */
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  background-size:cover;
+  min-width: 100%;
+  min-height: 100%;
+}   
+
+ .center-stage {
+  margin: 60px;
+} 
+
+.left-bar {
+  position: fixed;
+  left: -100px;
+  top:100px;
+  transition: 0.6s all;
+}
+
+input[type=checkbox]:checked + aside {
+  left: 60px;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  top: -50px;
+}
+
+label[for="toggle"] {
+  font-size: 3rem;
+  position: fixed;
+  top: 50px;
+  left: 60px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.nav-icon {
+  list-style: none;
+}
+                          /* INDEX OF NOTES */
+/* List Items */
+.note-list-item {
+  font-family: 'Crimson Text', serif;  
+  font-size: 20px;
+  border-top: 1px solid black;
+}
+
+.note-body {
+  float: right;
+}
+
+.bullet-icon {
+  max-height:50%; 
+  max-width:50%;
+  float: right;
+}
+
+.one.column {
+  margin-top: 5px;
+}
+
+.editables {
+  list-style: none;
+  display: inline;
+}
+
+.editables-list{
+  float: right;
+  margin: 0;
+}
+

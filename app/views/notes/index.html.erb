@@ -1,0 +1,43 @@
+<div class="container">
+    <% @notes.each do |note| %>
+        <div class="row note-list-item">
+            <div class="one column">
+                <img class="bullet-icon" src="/assets/icons/<%= note.note_type %>.svg" alt="icon for <%= note.note_type %>"> 
+            </div>
+            <div class="eleven columns note-body">
+                <div class="editables-list">
+                    <ul>
+                        <li class="editables"><a href="/notes/<%= note.id %>/edit"><img src="/assets/icons/edit.svg" width="15" height="15"></a></li>
+                        <li class="editables"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/notes/<%= note.id %>"><img src="/assets/icons/delete.svg" width="15" height="15"></a></li>
+                    </ul>
+                </div><%# insert icons here %>
+                <% if note.note_type == 'quote'%>
+                    <div>
+                        "<%= note.body %>"
+                    </div>
+                    <div>
+                        - <%= note.source %>
+                    </div>
+                <% elsif note.note_type == 'todo_soon' || note.note_type == 'todo_later'%>
+                    <div>
+                        <%= note.body %>
+                    </div>
+                    <div>
+                        <%= note.done ? '- Complete': '- Incomplete' %>
+                    </div>
+                <% elsif note.note_type == 'event'%>
+                    <div>
+                        <%= note.body %>
+                    </div>
+                    <div>
+                        - <%= note.date %>
+                    </div>
+                <% else %>
+                    <div>
+                        <%= note.body %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
