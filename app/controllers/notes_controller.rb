@@ -24,11 +24,13 @@ class NotesController < ApplicationController
     def update
         @note = Note.find(params[:id])
         @note.update(note_params)
+        redirect_to action: :index
     end
 
     def destroy
         @note = Note.find(params[:id]) #look into adding an alert
         @note.destroy
+        redirect_to action: :index
     end
 
     def note_params

@@ -28,6 +28,7 @@
   background-size:cover;
   min-width: 100%;
   min-height: 100%;
+  z-index: -10;
 }   
 
  .center-stage {
@@ -93,4 +94,3 @@ label[for="toggle"] {
   float: right;
   margin: 0;
 }
-

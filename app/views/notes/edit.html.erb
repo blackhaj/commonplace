@@ -1,5 +1,42 @@
-<div class="row note-list-item">
-    <div class="one column">
-        <img class="bullet-icon" src="/assets/icons/<%= @note.note_type %>.svg" alt="icon for <%= note.note_type %>"> 
+<div class="container">
+    <div class="row note-list-item">
+        <%= form_for @note, url: { action: "update" } do |f| %> 
+        <div class="one column" style="margin-left: 0px;">
+                <img class="bullet-icon" style="float: none;" src="/assets/icons/<%= @note.note_type %>.svg" alt="icon for <%= @note.note_type %>"> 
+        </div>
+        <div class="eleven columns note-body">
+            <div class="editables-list">
+                <ul>
+                    <li class="editables"><input class="btn btn-success margin"  src="/assets/icons/done.svg" width="15" height="15" type="image"/></li>
+                </ul>
+            </div>
+            <% if @note.note_type == 'quote'%>
+                <div>
+                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+                </div>
+                <div>
+                    <%= f.text_field :source, :input_html => { :value => @note.source } %>
+                </div>
+            <% elsif @note.note_type == 'todo_soon' || @note.note_type == 'todo_later'%>
+                <div>
+                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+                </div>
+                <div>
+                    <%# NEED TO ADD DONE BUTTON HERE %>
+                </div>
+            <% elsif @note.note_type == 'event'%>
+                <div>
+                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+                </div>
+                <div>
+                    - <%= f.date_select :note, :date, :default => @note.date  %>
+                </div>
+            <% else %>
+                <div>
+                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+                </div>
+            <% end %>
+        </div>
+        <% end %>
     </div>
 </div>
