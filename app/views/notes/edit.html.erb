@@ -29,7 +29,7 @@
                     <%= f.text_field :body, :input_html => { :value => @note.body } %>
                 </div>
                 <div>
-                    - <%= f.date_select :note, :date, :default => @note.date  %>
+                    - <%= date_select :note, :date %>
                 </div>
             <% else %>
                 <div>
