@@ -1,42 +1,112 @@
-<div class="container">
-    <div class="row note-list-item">
-        <%= form_for @note, url: { action: "update" } do |f| %> 
-        <div class="one column" style="margin-left: 0px;">
-                <img class="bullet-icon" style="float: none;" src="/assets/icons/<%= @note.note_type %>.svg" alt="icon for <%= @note.note_type %>"> 
-        </div>
-        <div class="eleven columns note-body">
-            <div class="editables-list">
-                <ul>
-                    <li class="editables"><input class="btn btn-success margin"  src="/assets/icons/done.svg" width="15" height="15" type="image"/></li>
-                </ul>
+<div class="new-edit-container">
+    <%= form_for @note, url: { action: "update" } do |f| %> 
+        
+        <% if @note.note_type == 'quote'%>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="quote card edit-box">
+                <div class="quote-inner">
+                    <div class="quote-body"><%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Type your quote here" %></div>
+                    <div class="quote-source"> - <%= f.text_field :source, :input_html => { :value => @note.source }, class: 'rails-form', placeholder: "Source" %></div>
+                </div>
             </div>
-            <% if @note.note_type == 'quote'%>
-                <div>
-                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'event' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="event card">
+                <div class="event-inner">
+                    <div class="event-date-new-edit"> <%= date_select :note, :date %></div>
+                    <div class="event-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Type your event details here", size: "250px" %></div>
                 </div>
-                <div>
-                    <%= f.text_field :source, :input_html => { :value => @note.source } %>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'goal' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="event card">
+                <div class="event-inner">
+                    <div class="event-date-new-edit"> <%= date_select :note, :date %></div>
+                    <div class="event-body"> Goal: <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Type your goal here", size: "250px" %></div>
                 </div>
-            <% elsif @note.note_type == 'todo_soon' || @note.note_type == 'todo_later'%>
-                <div>
-                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'diary' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="diary card">
+                <div class="diary-inner">
+                    <div class="diary-date"><%= date_select :note, :date %></div>
+                    <div class="diary-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Type your diary entry here", size: "250px" %></div>
                 </div>
-                <div>
-                    <%# NEED TO ADD DONE BUTTON HERE %>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'idea' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="idea card">
+                <div class="idea-inner">
+                    <div class="idea-icon"><%= image_tag("idea.svg", size: "35x35") %></div>
+                    <div class="idea-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Ideas here please", size: "250px" %> </div>
                 </div>
-            <% elsif @note.note_type == 'event'%>
-                <div>
-                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'note' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="note card">
+                <div class="note-inner">
+                    <div class="note-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Notes go here", size: "250px" %></div>
                 </div>
-                <div>
-                    - <%= date_select :note, :date %>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+
+        <% elsif @note.note_type == 'research' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="research card">
+                <div class="research-inner">
+                    <div class="research-icon"><%= image_tag("thought.svg", size: "35x35") %></div>
+                    <div class="research-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Stuff to research goes here", size: "250px" %> </div>
                 </div>
-            <% else %>
-                <div>
-                    <%= f.text_field :body, :input_html => { :value => @note.body } %>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'reference' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="reference card">
+                <div class="reference-inner">
+                    <div class="reference-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Things to refer to later", size: "250px" %> </div>
                 </div>
-            <% end %>
-        </div>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        
+        <% elsif @note.note_type == 'principle' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="principle card">
+                <div class="principle-inner">
+                    <div class="principle-title">LIFE PRINCIPLE</div>
+                    <div class="principle-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Add your principles", size: "250px" %> </div>
+                </div>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+        <% elsif @note.note_type == 'todo_soon' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="todo urgent-todo card">
+                <div class="todo-inner">
+                    <input type="checkbox" id="checkbox-new" class="checkbox">
+                    <label for="checkbox-new" class="todo-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Todo items here", size: "250px" %></label>
+                </div>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
+
+        <% elsif @note.note_type == 'todo_later' %>
+            <div class="new-edit-extras" >WRITE</div>
+            <div class="todo card">
+                <div class="todo-inner">
+                    <input type="checkbox" id="checkbox-new" class="checkbox">
+                    <label for="checkbox-new" class="todo-body"> <%= f.text_field :body, :input_html => { :value => @note.body }, class: 'rails-form', placeholder: "Todo items here", size: "250px" %></label>
+                </div>
+            </div>
+            <div class="button-realign"><input class="btn btn-success margin new-edit-extras new-edit-button"  value="ADD" type="submit"/></div>
         <% end %>
-    </div>
+    <% end %>
 </div>

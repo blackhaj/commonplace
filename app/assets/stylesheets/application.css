@@ -222,7 +222,7 @@ body {
 /* Card Items */
 .card {
   /* width: 265px; */
-  min-height: 30px;
+  min-height: 100px;
   max-height: 262px;
   overflow: scroll;
   border: 0.5px solid rgb(198,198,198);
@@ -381,4 +381,42 @@ input:focus {
 
 .urgent-todo {
   border-top: 6px solid rgb(235, 46, 44) ;
+}
+
+                      /* EDIT OF NOTES */
+.rails-form {
+  border: none !important;
+}
+
+.new-edit-container {
+  min-height: 30px;
+  max-height: 262px;
+  width: 265px;
+  margin:auto;
+}
+
+.new-edit-extras {
+  color: rgb(42,100,248) !important;
+  font-size: 150% !important;
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+.new-edit-button {
+  border: none !important;
+  position: relative;
+}
+
+.button-realign {
+  text-align:center;
+  margin:auto;
+}
+
+.event-date-new-edit {
+  font-size: 100% !important;
+  
+}
+
+.note_date_1i, .note_date_2i, .note_date_3i {
+  border: none !important;
 }

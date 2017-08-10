@@ -13,16 +13,17 @@ class NotesController < ApplicationController
         end
     end
 
-    def new # probs don't need this 
+    def new 
         @note = Note.new
-        @note_type = params[note_type]
+        @note_type = params[:note_type]
     end
 
     def create
         @new_note = Note.create(note_params.merge({user_id: current_user.id})) 
+        redirect_to action: :index
     end
 
-    def edit # probs don't need this 
+    def edit
         @note = current_user.notes.find(params[:id])
     end
 
@@ -40,14 +41,8 @@ class NotesController < ApplicationController
 
     private
 
-    # def check_user_signed_in
-    #     unless user_signed_in?
-    #         redirect_to new_user_registration_path
-    #     end
-    # end
-
     def note_params
-        params.require(:note).permit(:body, :source, :done, :date)# add in columns as symbols
+        params.require(:note).permit(:body, :source, :done, :date, :note_type)
     end
 
 end
