@@ -11,86 +11,224 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require normalize
  *= require skeleton
+ *= require_self
  */
- 
-                          /* MAIN APPLICATION CONTAINER */
 
-/* Background Image  */
-.bg-image {
-   background-image: url('/assets/paper.jpg'); 
-  /* background-color: rgb(249,241,228); */
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  background-size:cover;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -10;
-}   
-
- .center-stage {
-  margin: 60px;
+                           /* OVERALL APP */
+body {
+  margin: 0px;
+  font-family: 'Crimson Text', serif; 
 } 
 
-.left-bar {
+/* BLUE OUTER BORDER */
+
+.border {
+  z-index: 9999;
+  background-color: #2a64f8;
+}
+
+.border.top {
   position: fixed;
-  left: -100px;
-  top:100px;
-  transition: 0.6s all;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
 }
 
-input[type=checkbox]:checked + aside {
-  left: 60px;
-}
-
-input[type="checkbox"] {
-  position: absolute;
-  top: -50px;
-}
-
-label[for="toggle"] {
-  font-size: 3rem;
+.border.right {
   position: fixed;
-  top: 50px;
-  left: 60px;
-  z-index: 1;
-  cursor: pointer;
+  top: 0;
+  right: 0;
+  transform-origin: top right;
 }
 
-.nav-icon {
-  list-style: none;
+.border.bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
 }
+
+.border.left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom left;
+}
+
+.border.horizontal {
+  width: 100%;
+  height: 10px;
+}
+
+.border.vertical {
+  width: 10px;
+  height: 100%;
+}
+                          /* MAIN APPLICATION CONTAINER */
+
+.container {
+  margin-top: 75px;
+}
+
                           /* INDEX OF NOTES */
-/* List Items */
-.note-list-item {
-  font-family: 'Crimson Text', serif;  
-  font-size: 20px;
-  border-top: 1px solid black;
+/* Card Items */
+.card {
+  /* width: 265px; */
+  min-height: 30px;
+  max-height: 262px;
+  overflow: scroll;
+  border: 0.5px solid rgb(198,198,198);
+  border-radius: 1px;
+  margin: 0px 10px 10px 0px;
+  box-shadow: 0px 1px 2px 0px grey;
 }
 
-.note-body {
-  float: right;
+.quote {
+  font-style: italic;
+  
 }
 
-.bullet-icon {
-  max-height:50%; 
-  max-width:50%;
-  float: right;
+.quote-inner {
+  border-left: 4px solid black;
+  margin: 10px;
+  padding: 2px 2px 2px 10px;
 }
 
-.one.column {
-  margin-top: 5px;
+.quote-source {
+  padding-left: 15px;
 }
 
-.editables {
-  list-style: none;
-  display: inline;
+.event-inner {
+  margin: 15px;
 }
 
-.editables-list{
-  float: right;
-  margin: 0;
+.event-date {
+  font-size: 200%;
+  text-decoration: underline solid black;
+}
+
+.goal-inner {
+  display: inline-flex;
+  margin: 5px;
+}
+
+.goal-date {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 200%;
+  font-weight: bolder;
+  letter-spacing: -12px;
+  margin: -5px 0px 4px 0px;
+}
+
+.goal-body {
+  font-size: 150%;
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+  text-decoration: underline solid rgb(255,220,46);
+}
+
+.diary-inner{
+  margin: 10px;
+}
+
+.diary-date {
+  text-align: right;
+}
+
+.idea-inner {
+  margin: 10px;
+}
+
+.idea-icon {
+  float: left;
+  margin: 5px 5px 0px 2px;
+  border-bottom: 4px solid black;
+}
+
+.note {
+  min-height: 150px;
+  background-image: url("note.png");
+}
+
+.note-inner {
+  margin: 3px 5px 5px 38px;
+  line-height: 22px;
+}
+
+.research-inner {
+  margin: 10px;
+}
+
+.research-icon {
+  float: left;
+  margin: 5px 7px -1px 2px;
+  border-bottom: 4px solid black;
+}
+
+.reference {
+  border-top: 6px solid black ;
+}
+
+.reference-inner {
+  margin: 5px;
+}
+
+.principle-inner {
+  margin: 10px
+}
+
+.principle-title {
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.diary textarea {
+  display: none;
+}
+
+.todo-inner {
+  margin: 10px;
+  display: inline-flex;
+}
+
+.todo-body {
+  margin-left: 5px;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1px solid rgb(198,198,198);
+  padding: 8px;
+  border-radius: 1px;
+  position: relative;
+  max-height: 15px;
+  max-width: 15px;
+}
+
+.checkbox:checked {
+  background-color: white;
+  border: 1px solid rgb(198,198,198);
+}
+
+.checkbox:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: black;
+}
+
+.checkbox:checked + label {
+  text-decoration: line-through;    
+}
+
+input:focus {
+  outline: none;
 }

@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
 gem 'devise'
 
 # Use CoffeeScript for .coffee assets and views
