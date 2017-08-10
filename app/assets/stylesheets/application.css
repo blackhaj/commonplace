@@ -66,6 +66,103 @@ body {
   width: 10px;
   height: 100%;
 }
+
+ /* LEFT NAV BAR */
+.left-bar {
+  position: fixed;
+  left: -3000px;
+  top:0px;
+  transition: 0.2s all;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(42,100,248);
+  z-index: 1;
+}
+
+#toggle-left-nav:checked + aside {
+  left: 0px;
+}
+
+#toggle-left-nav {
+  position: absolute;
+  top: -50px;
+}
+
+#toggle-left-label {
+  position: fixed;
+  top: 30px;
+  left: 60px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.left-nav-item {
+  z-index: 3;
+  text-decoration: none;
+  color: white;
+  font-size: 200%;
+}
+
+.left-nav-bar-list{
+  text-align: center;
+  position: relative;
+  top: 25%;
+  list-style: none;
+}
+
+/* NEW NOTE BAR */
+.new-note-icon {
+  position: fixed;
+  top: 30px;
+  left: 90px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* FILTER BAR */
+
+.filter-bar {
+  position: fixed;
+  left: -3000px;
+  top:0px;
+  transition: 0.2s all;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(42,100,248);
+  z-index: 1;
+}
+
+#toggle-filter:checked + aside {
+  left: 0px;
+}
+
+#toggle-filter {
+  position: absolute;
+  top: -50px;
+}
+
+#toggle-filter-label {
+  position: fixed;
+  top: 31px;
+  left: 120px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.filter-item {
+  z-index: 3;
+  text-decoration: none;
+  color: white;
+  font-size: 200%;
+}
+
+.filter-bar-list{
+  text-align: center;
+  position: relative;
+  top: 25%;
+  list-style: none;
+}
+
                           /* MAIN APPLICATION CONTAINER */
 
 .container {

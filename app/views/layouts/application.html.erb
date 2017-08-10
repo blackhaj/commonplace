@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Commonplace</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png" />
     <%= csrf_meta_tags %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,17 +13,40 @@
    
   
   <body>
-    <div class="outer-border">
       <div class="outer-border">
             <div class="border top horizontal"></div>
             <div class="border bottom horizontal"></div>
             <div class="border right vertical"></div>
             <div class="border left vertical"></div>
       </div>
+      <%# LEFT NAVE BAR %>
+      <label for="toggle-left-nav" id="toggle-left-label"><%= image_tag("menu.svg", size: "20x20") %></label>
+      <input type="checkbox" id="toggle-left-nav">
+      <aside class="left-bar">
+        <ul class="left-nav-bar-list">
+          <li class="left-nav-item"><a href="/" class="left-nav-item">HOME</a></li>
+          <% if user_signed_in?  %>
+            <li class="left-nav-item"><a href="/notes" class="left-nav-item">NOTES</a></li>
+            <li class="left-nav-item"><a rel="nofollow" data-method="delete" href="/users/sign_out" class="left-nav-item">LEAVE</a></li> <%# MAY NEED TO MAKE THIS RESPONSIVE TO USER_SESSION %>
+          <% end %>
+        </ul>
+      </aside>
+      <%# NEW NOTE BAR %>
+      <a href="/notes/new" class="new-note-icon"><%= image_tag("new.svg", size: "20x20") %></a>
+      <%# FILTER NOTES BAR %>
+      <label for="toggle-filter" id="toggle-filter-label"><%= image_tag("filter.svg", size: "20x20") %></label>
+      <input type="checkbox" id="toggle-filter">
+      <aside class="filter-bar">
+        <ul class="filter-bar-list">
+          <li class="filter-item"><a href="/" class="filter-item">HOME</a></li>
+          <% if user_signed_in?  %>
+            <li class="filter-item"><a href="/notes" class="filter-item">NOTES</a></li>
+            <li class="filter-item"><a rel="nofollow" data-method="delete" href="/users/sign_out" class="filter-item">LEAVE</a></li> <%# MAY NEED TO MAKE THIS RESPONSIVE TO USER_SESSION %>
+          <% end %>
+        </ul>
+      </aside>
       <div class="container">
       <%= yield %>
       </div>
-    </div>
-    
   </body>   
 </html>
