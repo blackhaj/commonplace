@@ -19,7 +19,7 @@
             <div class="border right vertical"></div>
             <div class="border left vertical"></div>
       </div>
-      <%# LEFT NAVE BAR %>
+      <%# LEFT NAV BAR %>
       <label for="toggle-left-nav" id="toggle-left-label"><%= image_tag("menu.svg", size: "20x20") %></label>
       <input type="checkbox" id="toggle-left-nav">
       <aside class="left-bar">
@@ -32,42 +32,44 @@
         </ul>
       </aside>
       <%# NEW NOTE BAR %>
-      <label for="toggle-new-note-bar" id="toggle-new-note-bar-label"><%= image_tag("new.svg", size: "20x20") %></label>
-      <input type="checkbox" id="toggle-new-note-bar">
-      <aside class="new-note-bar">
-        <ul class="new-note-bar-list">
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=diary" class="new-note-bar-item">DIARY/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=event" class="new-note-bar-item">EVENT/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=goal" class="new-note-bar-item">GOAL/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=idea" class="new-note-bar-item">IDEA/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=todo_later" class="new-note-bar-item">TODO/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=todo_soon" class="new-note-bar-item" id="todo-soon">TODO</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=note" class="new-note-bar-item">/NOTE/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=principle" class="new-note-bar-item">PRINCIPLE/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=quote" class="new-note-bar-item">QUOTE/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=reference" class="new-note-bar-item">REFERENCE/</a></li>
-          <li class="new-note-bar-item"><a href="/notes/new?note_type=research" class="new-note-bar-item">RESEARCH</a></li>
-        </ul>
-      </aside>
-      <%# FILTER NOTES BAR %>
-      <label for="toggle-filter" id="toggle-filter-label"><%= image_tag("filter.svg", size: "20x20") %></label>
-      <input type="checkbox" id="toggle-filter">
-      <aside class="filter-bar">
-        <ul class="filter-bar-list">
-          <li class="filter-item"><a href="/notes" class="filter-item">ALL/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=diary" class="filter-item">DIARY/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=event" class="filter-item">EVENT/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=goal" class="filter-item">GOAL/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=idea" class="filter-item">IDEA/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=todo_later" class="filter-item">TODO/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=todo_soon" class="filter-item" id="todo-soon">TODO</a></li>
-          <li class="filter-item"><a href="/notes?note_type=note" class="filter-item">/NOTE/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=principle" class="filter-item">PRINCIPLE/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=quote" class="filter-item">QUOTE/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=reference" class="filter-item">REFERENCE/</a></li>
-          <li class="filter-item"><a href="/notes?note_type=research" class="filter-item">RESEARCH</a></li>
-        </ul>
-      </aside>
+      <% if user_signed_in? %>
+        <label for="toggle-new-note-bar" id="toggle-new-note-bar-label"><%= image_tag("new.svg", size: "20x20") %></label>
+        <input type="checkbox" id="toggle-new-note-bar">
+        <aside class="new-note-bar">
+          <ul class="new-note-bar-list">
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=diary" class="new-note-bar-item">DIARY/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=event" class="new-note-bar-item">EVENT/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=goal" class="new-note-bar-item">GOAL/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=idea" class="new-note-bar-item">IDEA/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=todo_later" class="new-note-bar-item">TODO/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=todo_soon" class="new-note-bar-item" id="todo-soon">TODO</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=note" class="new-note-bar-item">/NOTE/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=principle" class="new-note-bar-item">PRINCIPLE/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=quote" class="new-note-bar-item">QUOTE/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=reference" class="new-note-bar-item">REFERENCE/</a></li>
+            <li class="new-note-bar-item"><a href="/notes/new?note_type=research" class="new-note-bar-item">RESEARCH</a></li>
+          </ul>
+        </aside>
+        <%# FILTER NOTES BAR %>
+        <label for="toggle-filter" id="toggle-filter-label"><%= image_tag("filter.svg", size: "20x20") %></label>
+        <input type="checkbox" id="toggle-filter">
+        <aside class="filter-bar">
+          <ul class="filter-bar-list">
+            <li class="filter-item"><a href="/notes" class="filter-item">ALL/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=diary" class="filter-item">DIARY/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=event" class="filter-item">EVENT/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=goal" class="filter-item">GOAL/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=idea" class="filter-item">IDEA/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=todo_later" class="filter-item">TODO/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=todo_soon" class="filter-item" id="todo-soon">TODO</a></li>
+            <li class="filter-item"><a href="/notes?note_type=note" class="filter-item">/NOTE/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=principle" class="filter-item">PRINCIPLE/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=quote" class="filter-item">QUOTE/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=reference" class="filter-item">REFERENCE/</a></li>
+            <li class="filter-item"><a href="/notes?note_type=research" class="filter-item">RESEARCH</a></li>
+          </ul>
+        </aside>
+      <% end %>
       <div class="container">
       <%= yield %>
       </div>
