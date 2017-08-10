@@ -14,6 +14,8 @@ class NotesController < ApplicationController
     end
 
     def new # probs don't need this 
+        @note = Note.new
+        @note_type = params[note_type]
     end
 
     def create

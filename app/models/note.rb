@@ -1,5 +1,6 @@
 class Note < ApplicationRecord
     before_create :todo_false
+    belongs_to :user
     enum note_type: [:todo_later, :todo_soon, :idea, :quote, :diary, :goal, :reference, :principle, :research, :event, :note]
 
 
