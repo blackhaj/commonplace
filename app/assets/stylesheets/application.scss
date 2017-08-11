@@ -386,6 +386,8 @@ input:focus {
                       /* EDIT OF NOTES */
 .rails-form {
   border: none !important;
+  background: transparent !important;
+
 }
 
 .new-edit-container {
@@ -420,3 +422,4 @@ input:focus {
 .note_date_1i, .note_date_2i, .note_date_3i {
   border: none !important;
 }
+
