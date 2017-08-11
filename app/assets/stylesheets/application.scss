@@ -220,21 +220,21 @@ body {
 
 /* GRID PLAYING */
 
-.grid-row {
-  width: 1060px;
-  display: grid;
-  margin:auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-auto-rows: 200px;
-  grid-auto-flow: dense; 
-}
+// .grid-row {
+//   width: 1060px;
+//   display: grid;
+//   margin:auto;
+//   grid-template-columns: 1fr 1fr 1fr 1fr;
+//   // grid-auto-rows: 200px;
+//   grid-auto-flow: dense; 
+// }
 
 /* For the grid, I removed the 'three rows' class for each card (skeleton class) + changed the name of row in index to grid-row, then added the above styling */
 
                           /* INDEX OF NOTES */
 /* Card Items */
 .card {
-  width: 265px;
+  // width: 265px;
   position: relative;
   min-height: 100px;
   max-height: 262px;
