@@ -1,0 +1,31 @@
+<div class="devise-container">
+
+  <div class="devise-page-title" >WELCOME TO YOUR COMMONPLACE</div>
+  <div class="devise-form-div">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, class: 'devise-form', placeholder: "Email goes here" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", class: 'devise-form', placeholder: "and your password" %>
+    </div>
+
+<%
+=begin %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+<%
+=end %>
+
+    <div class="actions devise-button">
+      <%= f.submit "ENTER", class: 'devise-button' %>
+    </div>
+  <% end %>
+  <div class="devise-link-box"><a href="/users/sign_up" class="devise-links">Or signup, slowcoach...</a></div>
+  <div class="devise-link-box"><a href="/users/password/new" class="devise-links">Forgetful people this way</a></div>
+  </div> 
+</div>

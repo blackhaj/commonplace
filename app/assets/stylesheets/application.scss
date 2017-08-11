@@ -423,3 +423,47 @@ input:focus {
   border: none !important;
 }
 
+                                /* DEVISE */
+.devise-container{
+  width: 1000px;
+  margin:auto;
+  position: fixed;
+  top: 20%;
+}
+
+.devise-page-title {
+  color: rgb(42,100,248) ;
+  font-size: 300% ;
+  font-weight: bold ;
+  text-align: center ;
+}
+
+.devise-form-div {
+  width: 170px;
+  margin:auto;
+}
+
+.devise-form {
+  border: none !important;
+  background: transparent !important;
+  text-align: center;
+}
+
+.devise-button {
+  border: none !important;
+  position: relative;
+  margin: auto !important;
+  color: rgb(42,100,248) !important;
+  font-size: 150% !important;
+  font-weight: bold !important;
+}
+
+.devise-links{
+  color: rgb(42,100,248) !important;
+  text-decoration: none;
+
+}
+.devise-link-box {
+  text-align: center;
+  position: relative;
+}

@@ -1,0 +1,26 @@
+<div class="devise-container">
+
+  <div class="devise-page-title" >SIGN UP FOR YOUR COMMONPLACE</div>
+  <div class="devise-form-div">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, class: 'devise-form', placeholder: "Email goes here" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off", class: 'devise-form', placeholder: "Password (6 characters min)" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'devise-form', placeholder: "Once more for luck" %>
+      </div>
+
+      <div class="actions devise-button">
+        <%= f.submit "ENTER", class: 'devise-button'%>
+      </div>
+    <% end %>
+    <div class="devise-link-box"><a href="/users/sign_in" class="devise-links">Or login, you pro...</a></div>
+  </div> 
+</div>
