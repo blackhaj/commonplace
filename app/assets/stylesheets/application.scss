@@ -222,6 +222,7 @@ body {
 /* Card Items */
 .card {
   /* width: 265px; */
+  position: relative;
   min-height: 100px;
   max-height: 262px;
   overflow: scroll;
@@ -421,6 +422,19 @@ input:focus {
 
 .note_date_1i, .note_date_2i, .note_date_3i {
   border: none !important;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.edit-icon:hover {
+  opacity: 1;
 }
 
                                 /* DEVISE */
