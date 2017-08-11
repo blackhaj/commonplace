@@ -1,8 +1,8 @@
-<div class="container">
-    <div class="row">
+<div class="grid-container">
+    <div class="grid-row">
         <% @notes.each do |note| %>
                 <% if note.note_type == 'quote'%>
-                    <div class="quote card three columns">
+                    <div class="quote card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="quote-inner">
                             <div class="quote-body"><%= note.body %></div>
@@ -10,7 +10,7 @@
                         </div>
                     </div>
                 <% elsif note.note_type == 'event' %>
-                    <div class="event card three columns">
+                    <div class="event card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="event-inner">
                             <div class="event-date"> <%= note.date.day %> <%= Date::MONTHNAMES[note.date.month].downcase %></div>
@@ -19,7 +19,7 @@
                     </div>
                 
                 <% elsif note.note_type == 'goal' %>
-                    <div class="goal card three columns">
+                    <div class="goal card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="goal-inner">
                             <div class="goal-date"> <%= note.date.year %> </div>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 <% elsif note.note_type == 'diary' %>
-                    <div class="diary card three columns">
+                    <div class="diary card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="diary-inner">
                             <div class="diary-date"><%= note.date %></div>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 <% elsif note.note_type == 'idea' %>
-                    <div class="idea card three columns">
+                    <div class="idea card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="idea-inner">
                             <div class="idea-icon"><%= image_tag("idea.svg", size: "35x35") %></div>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 <% elsif note.note_type == 'note' %>
-                    <div class="note card three columns">
+                    <div class="note card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="note-inner">
                             <div class="note-body"> <%= note.body %></div>
@@ -51,7 +51,7 @@
                     </div>
 
                 <% elsif note.note_type == 'research' %>
-                    <div class="research card three columns">
+                    <div class="research card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="research-inner">
                             <div class="research-icon"><%= image_tag("thought.svg", size: "35x35") %></div>
@@ -60,7 +60,7 @@
                     </div>
 
                 <% elsif note.note_type == 'reference' %>
-                    <div class="reference card three columns">
+                    <div class="reference card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="reference-inner">
                             <div class="reference-body"> <%= note.body %> </div>
@@ -68,7 +68,7 @@
                     </div>
 
                 <% elsif note.note_type == 'principle' %>
-                    <div class="principle card three columns">
+                    <div class="principle card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="principle-inner">
                             <div class="principle-title">LIFE PRINCIPLE</div>
@@ -77,7 +77,7 @@
                     </div>
 
                 <% elsif note.note_type == 'todo_later' %>
-                    <div class="todo card three columns">
+                    <div class="todo card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="todo-inner">
                             <input type="checkbox" id="checkbox<%= note.id %>" class="checkbox">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 <% elsif note.note_type == 'todo_soon' %>
-                    <div class="todo urgent-todo card three columns">
+                    <div class="todo urgent-todo card">
                         <div class="edit-icon"><a href="/notes/<%= note.id %>/edit"><%= image_tag("edit.svg", size: "15x15") %></a></div>
                         <div class="todo-inner">
                             <input type="checkbox" id="checkbox<%= note.id %>" class="checkbox">
